@@ -1,6 +1,11 @@
 # nginx_proxy
 An example of using Nginx as a proxy: it allows a single server IP to host multiple services, with the proxy routing requests to the appropriate service.
 
+# visualisation
+(client) https://www.teastytrack.com <-----> 92.14.18.20 (serveur endpoint) nginx_proxy <--------- http --------> service teastytrack
+(client) https://www.amazingsite.com <-----> 92.14.18.20 (serveur endpoint) nginx_proxy <---------- http -------> service homesite
+(local client) <----------- http ----------> 192.168.1.14 (serveur endpoint local ip) nginx_proxy <---- http ---> service teastytrack
+
 N.B.  
 - The example includes a docker-compose file to containerize Nginx.  
 - Ports 80 (HTTP) and 443 (HTTPS) are used on the main server.  
