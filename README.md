@@ -1,2 +1,2 @@
 # nginx_proxi
-Example of nginx as a proxi, this allow to use a single IP serveur to have multiple services, the proxi route the request to right service
+An example of using Nginx as a proxy: it allows a single server IP to host multiple services, with the proxy routing requests to the appropriate service.
