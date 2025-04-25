@@ -1,10 +1,22 @@
 # nginx_proxy
 An example of using Nginx as a proxy: it allows a single server IP to host multiple services, with the proxy routing requests to the appropriate service.
 
-# visualisation
-(client) https://www.teastytrack.com <-----> 92.14.18.20 (serveur endpoint) nginx_proxy <--------- http --------> service teastytrack
-(client) https://www.amazingsite.com <-----> 92.14.18.20 (serveur endpoint) nginx_proxy <---------- http -------> service homesite
-(local client) <----------- http ----------> 192.168.1.14 (serveur endpoint local ip) nginx_proxy <---- http ---> service teastytrack
+```markdown
+## Visualization of Nginx Proxy Setup
+
+The table below shows how the Nginx proxy routes client requests to internal services.
+
+| Client URL                        | Nginx Proxy IP         | Protocol | Target Service       |
+|-----------------------------------|------------------------|----------|----------------------|
+| https://www.teastytrack.com       | 92.14.18.20 (Public)   | HTTPS    | http://teastytrack   |
+| https://www.amazingsite.com       | 92.14.18.20 (Public)   | HTTPS    | http://homesite      |
+| http://local-client               | 192.168.1.14 (Local)   | HTTP     | http://teastytrack   |
+
+### Explanation
+- **Clients** send HTTPS requests (or HTTP for local clients) to the Nginx proxy at the specified public or local IP address.
+- The **Nginx proxy** routes these requests to the appropriate internal service (`teastytrack` or `homesite`) over HTTP.
+- The Nginx proxy handles SSL termination (encryption/decryption) for HTTPS requests, allowing services to use plain HTTP internally.
+```
 
 N.B.  
 - The example includes a docker-compose file to containerize Nginx.  
