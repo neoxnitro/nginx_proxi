@@ -27,3 +27,5 @@ N.B.
 N.B.  
 - In nginx.conf,  
 - http://teastytrack_nginx and http://homesite_nginx correspond to the Docker containers' addresses (these are internal Docker addresses only accessible to containers that share the same Docker network).
+
+update 10/05/24: fix let's encrypt generate/renewal ssl certificat
